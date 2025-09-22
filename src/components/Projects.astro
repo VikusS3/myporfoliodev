@@ -1,0 +1,11 @@
+---
+import presentation from "@/data/presentacion";
+import ProjectCard from "./experience/ProjectCard.astro";
+---
+
+<section class="flex flex-col flex-wrap gap-6">
+  <h2 class="text-2xl font-semibold text-neutral-50">Proyectos</h2>
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {presentation.projects.map((project) => <ProjectCard {...project} />)}
+  </div>
+</section>

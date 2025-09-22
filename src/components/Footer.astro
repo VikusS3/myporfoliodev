@@ -1,0 +1,31 @@
+---
+import presentation from "@/data/presentacion";
+---
+
+<footer class="flex flex-col gap-6">
+  <h2 class="text-3xl text-white font-bold">Contacto</h2>
+  <p class="text-neutral-300/80">
+    Escríbeme por correo <a
+      class="hover:text-neutral-100 cursor-pointer"
+      href={`mailto:${presentation.mail}`}>{presentation.mail}</a
+    >
+    o sigueme en mis redes sociales.
+  </p>
+
+  <nav role="navigation">
+    <ul role="list" class="flex flex-row gap-4 text-neutral-300/80">
+      {
+        presentation.socials.map((social, index) => (
+          <>
+            <li class="hover:text-neutral-100 cursor-pointer">
+              <a target="_blank" href={social.url}>
+                {social.name}
+              </a>
+            </li>
+            {presentation.socials.length - 1 !== index && <li>/</li>}
+          </>
+        ))
+      }
+    </ul>
+  </nav>
+</footer>

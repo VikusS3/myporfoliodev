@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import type { Post } from "@/types/post";
+import Layout from "@/layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+
+  return posts.map((post: { slug: any }) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props as {
+  post: { data: Post; slug: string; render: () => any };
+};
+
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+  <head>
+    <title>{post.data.title}</title>
+  </head>
+  <body class="text-neutral-800 dark:text-neutral-200">
+    <main class="max-w-3xl mx-auto px-10">
+      <!-- <a
+        href="/posts"
+        class="text-neutral-600 dark:text-neutral-400 hover:underline text-sm"
+      >
+        ← Volver al blog
+      </a> -->
+
+      <article class="mt-6 prose dark:prose-invert prose-lg max-w-none">
+        <header class="mb-8">
+          <h1 class="text-4xl font-bold mb-2">{post.data.title}</h1>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">
+            {post.data.date}
+          </p>
+        </header>
+
+        <div class="markdown">
+          <Content />
+        </div>
+      </article>
+    </main>
+  </body>
+</Layout>

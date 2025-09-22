@@ -1,0 +1,31 @@
+---
+import presentation from "@/data/presentacion";
+---
+
+<section class="flex flex-col gap-4 text-neutral-300/80">
+  <div class="flex flex-col gap-8">
+    <h1 class="text-white text-3xl">Hola, Soy Saul Orellana 👋</h1>
+    <p class="max-w-lg text-sm leading-6 w-auto">
+      Hola soy Saul Orellana, desarrollador web fullstack con <span
+        class="text-red-400/90"
+        >más de 2 años
+      </span>de experiencia . Me gusta la programación y la tecnología.
+    </p>
+    <nav role="navigation">
+      <ul role="list" class="flex flex-row gap-2">
+        {
+          presentation.socials.map((social, index) => (
+            <>
+              <li class="hover:text-neutral-100 cursor-pointer">
+                <a target="_blank" href={social.url}>
+                  {social.name}
+                </a>
+              </li>
+              {presentation.socials.length - 1 !== index && <li>/</li>}
+            </>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</section>

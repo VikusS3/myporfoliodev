@@ -1,22 +1,41 @@
+---
+import "@/styles/global.css";
+import Header from "@/components/Header.astro";
+import "@fontsource/poppins";
+import { ClientRouter } from "astro:transitions";
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body
+    class="mx-auto flex min-h-screen max-w-[872px] flex-col px-10 py-8 gap-9 md:gap-20 md:py-16 text-sm text-neutral-200"
+  >
+    <Header />
+    <ClientRouter />
+    <slot />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  body {
+    font-family: "Poppins", sans-serif;
+    background: radial-gradient(
+      125% 125% at 50% 100%,
+      #000000 40%,
+      #2b0707 100%
+    );
+  }
 </style>

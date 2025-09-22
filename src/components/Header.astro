@@ -1,0 +1,37 @@
+---
+import presentation from "@/data/presentacion";
+function removeTrailingSlash(pathname: string) {
+  const matchTrailingSlash = /\w+\/$/;
+  if (matchTrailingSlash.test(pathname)) return pathname.slice(0, -1);
+  return pathname;
+}
+
+const pathname = removeTrailingSlash(Astro.url.pathname);
+---
+
+<header class="flex w-full justify-between items-center text-neutral-300">
+  <a href=`mailto:${presentation.mail} `>{presentation.mail}</a>
+  <nav>
+    <ul class="flex gap-2">
+      <li>
+        <a
+          href="/"
+          class:list={{
+            ["hover:text-neutral-100"]: true,
+            ["text-neutral-100"]: pathname === "/",
+          }}>Home</a
+        >
+      </li>
+      <li>/</li>
+      <li>
+        <a
+          href="/posts"
+          class:list={{
+            ["hover:text-neutral-100"]: true,
+            ["text-neutral-100"]: pathname === "/posts",
+          }}>Blog</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>

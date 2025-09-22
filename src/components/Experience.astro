@@ -1,0 +1,20 @@
+---
+import presentation from "@/data/presentacion";
+import ExperienceCard from "@/components/experience/ExperienceCard.astro";
+---
+
+<section class="flex flex-col flex-wrap gap-6">
+  <h2 class="text-2xl font-semibold text-neutral-50">Experiencia</h2>
+  <div class="flex flex-col w-full gap-4">
+    {
+      presentation.experience.map((project) => (
+        <ExperienceCard
+          name={project.name}
+          duration={project.duration}
+          role={project.role}
+          description={project.description}
+        />
+      ))
+    }
+  </div>
+</section>

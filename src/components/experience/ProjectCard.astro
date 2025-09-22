@@ -1,0 +1,51 @@
+---
+type Props = {
+  name: string;
+  description: string;
+  technologies: string[];
+  ref: string;
+};
+
+const { name, description, technologies, ref } = Astro.props;
+---
+
+<a
+  href={ref}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="relative group flex flex-col gap-3 rounded-xl border border-neutral-800
+        bg-neutral-900/40 p-5 transition-all duration-500 overflow-hidden cursor-pointer"
+>
+  <!-- Header -->
+  <div class="mb-2">
+    <h3 class="text-lg font-semibold text-neutral-50">{name}</h3>
+  </div>
+
+  <!-- Body -->
+  <div class="relative z-10 flex flex-col h-full">
+    <p class="text-sm text-neutral-300/80 mb-3 leading-relaxed">
+      {description}
+    </p>
+
+    <!-- Chips -->
+    <div class="flex flex-wrap gap-2">
+      {
+        technologies.map((tech) => (
+          <span
+            class="text-xs font-medium px-3 py-1 rounded-full border border-neutral-700/70 
+            text-neutral-200 transition-colors duration-300"
+          >
+            {tech}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Shine Effect (solo al hover, no se queda) -->
+  <div
+    class="absolute top-0 -left-1/3 w-1/2 h-full bg-gradient-to-r from-transparent via-white/5 to-transparent
+    skew-x-12 opacity-0 group-hover:opacity-100 transition duration-700 group-hover:translate-x-[200%]"
+  >
+  </div>
+</a>
