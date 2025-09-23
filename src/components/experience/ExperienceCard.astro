@@ -10,10 +10,12 @@ const { name, duration, description, role } = Astro.props;
 ---
 
 <article
-  class="relative group flex w-full flex-col gap-2 rounded-md border border-neutral-800 p-4 transition-all duration-300 overflow-hidden"
+  class="relative group flex w-full flex-col gap-2 rounded-md border border-neutral-700 p-4 transition-all duration-300 overflow-hidden"
 >
   <!-- Contenido -->
-  <header class="flex flex-row justify-between items-start relative z-10">
+  <header
+    class="flex flex-col gap-2 sm:flex-row sm:justify-between items-start relative z-10"
+  >
     <div>
       <p class="text-lg font-semibold text-neutral-50">{name}</p>
       <span class="text-xs text-red-400/90">{role}</span>

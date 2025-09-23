@@ -26,7 +26,7 @@ const presentation: Presentation = {
       name: "Universidad Nacional Mayor de San Marcos",
       role: "Desarrollador de Software",
       location: "Lima, Perú",
-      duration: "Octubre 2024 - Agosto 2025",
+      duration: "Agosto 2024 - Agosto 2025",
       description:
         "Desarrollé una plataforma con Laravel y Next.js que optimizó un 50% los procesos administrativos, automatizó evaluaciones y encuestas reduciendo en 70% los tiempos de análisis, e integró gráficos dinámicos en tiempo real para mejorar la toma de decisiones.",
     },

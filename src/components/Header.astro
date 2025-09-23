@@ -9,10 +9,13 @@ function removeTrailingSlash(pathname: string) {
 const pathname = removeTrailingSlash(Astro.url.pathname);
 ---
 
-<header class="flex w-full justify-between items-center text-neutral-300">
-  <a href=`mailto:${presentation.mail} `>{presentation.mail}</a>
-  <nav>
-    <ul class="flex gap-2">
+<header class="z-40 flex w-full flex-col gap-2 sm:flex-row sm:justify-between">
+  <a href={`mailto:${presentation.mail}`} class="hover:text-neutral-100"
+    >{presentation.mail}</a
+  >
+
+  <nav role="navigation">
+    <ul role="list" class="flex flex-row gap-2">
       <li>
         <a
           href="/"
@@ -29,7 +32,7 @@ const pathname = removeTrailingSlash(Astro.url.pathname);
           class:list={{
             ["hover:text-neutral-100"]: true,
             ["text-neutral-100"]: pathname === "/posts",
-          }}>Blog</a
+          }}>Posts</a
         >
       </li>
     </ul>

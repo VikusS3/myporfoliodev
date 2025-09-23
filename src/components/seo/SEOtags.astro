@@ -2,7 +2,7 @@
 import { SITE_URL } from "@/data/config";
 import type { HeadTags } from "@/types/headtags";
 import { SEO } from "astro-seo";
-import { DEFAUL_TITLE_PAGE, DEFAUL_DESCRIPTION_PAGE } from "@/types/config";
+import { DEFAUL_TITLE_PAGE, DEFAUL_DESCRIPTION_PAGE } from "@/utils/config";
 type Props = HeadTags;
 
 const { title, description, noindex, og } = Astro.props;

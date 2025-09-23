@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+/* Responsive utilities globales */
+
 .markdown {
     color: #e5e7eb; /* texto gris claro */
     line-height: 1.7;
