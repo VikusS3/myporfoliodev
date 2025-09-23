@@ -3,23 +3,16 @@ import "@/styles/global.css";
 import Header from "@/components/Header.astro";
 import "@fontsource/poppins";
 import { ClientRouter } from "astro:transitions";
-interface Props {
-  title: string;
-  description: string;
-}
+import SEOtags from "@/components/seo/SEOtags.astro";
+import type { HeadTags } from "@/types/headtags";
 
-const { title, description } = Astro.props;
+export type Props = HeadTags;
+const headTags = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-  </head>
+  <SEOtags {...headTags} />
   <body
     class="mx-auto flex min-h-screen max-w-[872px] flex-col px-10 py-8 gap-9 md:gap-20 md:py-16 text-sm text-neutral-200"
   >
