@@ -3,9 +3,8 @@ import { type Presentation } from "@/types/type";
 const presentation: Presentation = {
   mail: "felix21soc@gmail.com",
   title: "Hola, Soy Saul Orellana 👋",
-  // profile: "/profile.webp",
   description:
-    "Hola soy Saul Orellana, desarrollador web fullstack con más de 2 años. Me gusta la programación y la tecnología.",
+    "Hola soy Saul Orellana, desarrollador web fullstack con más de 2 años de experiencia en desarrollo web. Me gusta la programación y la tecnología.",
   socials: [
     {
       name: "X",
@@ -50,23 +49,29 @@ const presentation: Presentation = {
 
   projects: [
     {
-      name: "Portfolio Website",
-      description: "Sitio personal desarrollado con Astro y Tailwind.",
-      technologies: ["Astro", "Tailwind", "TypeScript"],
-      ref: "https://github.com/VikusS3/Portfolio",
+      name: "Sistema Farmacia",
+      description: "Sistema para gestionar farmacias.",
+      technologies: [
+        "Next.js",
+        "Tailwind",
+        "TypeScript",
+        "Node.js",
+        "Express",
+        "MySQL",
+      ],
+      ref: "https://github.com/VikusS3/sistema-farmacia",
     },
     {
-      name: "E-commerce Store",
-      description: "Tienda en línea con carrito de compras y pasarela de pago.",
-      technologies: ["Next.js", "Stripe", "PostgreSQL"],
-      ref: "https://github.com/VikusS3/E-commerce-Store",
+      name: "Script Excel",
+      description: "Script en Python para procesar archivos de Excel.",
+      technologies: ["Python", "Pandas", "Openpyxl"],
+      ref: "https://github.com/VikusS3/Excel-facturas",
     },
     {
-      name: "Dashboard Analytics",
-      description:
-        "Dashboard interactivo con gráficos y métricas en tiempo real.",
-      technologies: ["React", "D3.js", "Node.js"],
-      ref: "https://github.com/VikusS3/Dashboard-Analytics",
+      name: "Projects React",
+      description: "Pagina que compila mis proyectos hechos con React.",
+      technologies: ["React", "Vite", "Tailwind", "TypeScript"],
+      ref: "https://github.com/VikusS3/projects-react",
     },
   ],
 };
