@@ -4,7 +4,7 @@ const presentation: Presentation = {
   mail: "felix21soc@gmail.com",
   title: "Hola, Soy Saul Orellana 👋",
   description:
-    "Hola soy Saul Orellana, desarrollador web fullstack con más de 2 años de experiencia en desarrollo web. Me gusta la programación y la tecnología.",
+    "Hola soy Saul Orellana, desarrollador web fullstack con más de 3 años de experiencia en desarrollo web. Me gusta la programación y la tecnología.",
   socials: [
     {
       name: "X",
@@ -49,29 +49,24 @@ const presentation: Presentation = {
 
   projects: [
     {
-      name: "Sistema Farmacia",
-      description: "Sistema para gestionar farmacias.",
-      technologies: [
-        "Next.js",
-        "Tailwind",
-        "TypeScript",
-        "Node.js",
-        "Express",
-        "MySQL",
-      ],
-      ref: "https://github.com/VikusS3/sistema-farmacia",
+      name: "PractiPeru",
+      description:
+        "Plataforma para encontrar practicas pre profesionales y profesionales en Perú.",
+      technologies: ["Astro", "Tailwind", "Supabase"],
+      ref: "https://practiperu.pages.dev/",
     },
     {
-      name: "Script Excel",
-      description: "Script en Python para procesar archivos de Excel.",
-      technologies: ["Python", "Pandas", "Openpyxl"],
+      name: "Hrmicro",
+      description: "Sistema de control de plantilla para microempresas.",
+      technologies: ["Next.js", "React-Native", "Tailwind", "Supabase"],
       ref: "https://github.com/VikusS3/Excel-facturas",
     },
     {
-      name: "Projects React",
-      description: "Pagina que compila mis proyectos hechos con React.",
-      technologies: ["React", "Vite", "Tailwind", "TypeScript"],
-      ref: "https://github.com/VikusS3/projects-react",
+      name: "Gacha Countdown",
+      description:
+        "Pagina web en la cual puedes ver la cuenta atras para las nuevas versiones de Gachas.",
+      technologies: ["React", "Astro", "Tailwind", "TypeScript"],
+      ref: "https://version-counter.netlify.app/",
     },
   ],
 };
