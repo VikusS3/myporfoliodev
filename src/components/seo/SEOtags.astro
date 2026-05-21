@@ -5,7 +5,7 @@ import { SEO } from "astro-seo";
 import { DEFAUL_TITLE_PAGE, DEFAUL_DESCRIPTION_PAGE } from "@/utils/config";
 type Props = HeadTags;
 
-const { title, description, noindex, og } = Astro.props;
+const { title, description, noindex, canonical, og } = Astro.props;
 
 const DEFAULT_URL_SITE = SITE_URL;
 
@@ -15,8 +15,12 @@ const openGraph = {
   description: og?.description || DEFAUL_DESCRIPTION_PAGE,
   image: og?.image || "/og-image.jpg",
   url: DEFAULT_URL_SITE,
-  alt: og?.alt || "SaulDev portfolio",
+  alt: og?.alt || "SaulDev - Portafolio de Saul Orellana, desarrollador fullstack",
 };
+
+const canonicalUrl = canonical
+  ? `${DEFAULT_URL_SITE}${canonical}`
+  : DEFAULT_URL_SITE;
 ---
 
 <head>
@@ -30,6 +34,7 @@ const openGraph = {
         title: openGraph.title,
         type: openGraph.type,
         image: openGraph.image,
+        url: canonicalUrl,
       },
       image: {
         alt: openGraph.alt,
@@ -42,10 +47,17 @@ const openGraph = {
       link: [
         { rel: "icon", href: "/favicon.svg" },
         { rel: "sitemap", href: "/sitemap.xml" },
+        { rel: "canonical", href: canonicalUrl },
       ],
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         { name: "generator", content: Astro.generator },
+        {
+          name: "robots",
+          content: noindex
+            ? "noindex, nofollow"
+            : "index, follow, max-image-preview:large, max-snippet:-1",
+        },
         {
           name: "twitter:image",
           content: openGraph.image,

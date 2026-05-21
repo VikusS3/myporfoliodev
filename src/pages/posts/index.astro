@@ -2,36 +2,69 @@
 import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
-// Obtenemos y ordenamos los posts por fecha (más recientes primero)
 let posts = await getCollection("posts");
 posts = posts.sort(
   (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
 ---
 
-<Layout title="Blog" description="Artículos sobre desarrollo y tecnología">
-  <section class="max-w-5xl mx-auto">
-    <h1 class="text-4xl font-bold mb-8 text-center">📚 Últimos Posts</h1>
-
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      {
-        posts.map((post) => (
-          <a
-            href={`/posts/${post.slug}`}
-            class="relative group flex flex-col gap-3 text-neutral-300/70 rounded-xl border border-neutral-700
-          overflow-hidden cursor-pointer hover:text-neutral-200 transition-all duration-300"
-          >
-            <div class="p-6 flex flex-col h-full">
-              <h2 class="text-xl font-semibold mb-2 ">{post.data.title}</h2>
-              <p class="text-sm mb-4">{post.data.date}</p>
-              <p class="flex-grow">
-                {post.data.description || "Sin descripción..."}
-              </p>
-              <span class="mt-4 font-medium">Leer más →</span>
-            </div>
-          </a>
-        ))
-      }
+<Layout
+  title="Blog | SaulDev - Artículos sobre desarrollo web y tecnología"
+  description="Explora artículos sobre desarrollo web fullstack, JavaScript, TypeScript, React, Laravel, Astro y las últimas tendencias en tecnología. Escritos por Saul Orellana."
+  canonical="/posts"
+>
+  <section class="flex flex-col gap-6 animate-fade-in">
+    <div class="flex items-center gap-3">
+      <h1 class="text-2xl font-bold text-neutral-50">Blog</h1>
+      <span class="h-px flex-1 bg-gradient-to-r from-white/[0.06] to-transparent"></span>
     </div>
+
+    {
+      posts.length === 0 ? (
+        <div class="flex flex-col items-center justify-center py-16 gap-3 text-center">
+          <p class="text-neutral-500 text-sm">No hay art&iacute;culos publicados a&uacute;n.</p>
+        </div>
+      ) : (
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            posts.map((post) => (
+              <a
+                href={`/posts/${post.slug}`}
+                class="group relative flex flex-col rounded-xl border border-white/[0.06] bg-white/[0.02] p-5
+                  transition-all duration-400 overflow-hidden cursor-pointer
+                  hover:border-accent/20 hover:bg-accent/[0.02]
+                  hover:shadow-[0_0_30px_-12px_rgba(248,113,113,0.12)]
+                  hover:-translate-y-0.5
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
+                aria-label={`Leer artículo: ${post.data.title}`}
+              >
+                <div class="flex flex-col gap-3 h-full">
+                  <div class="flex items-center gap-2 text-xs text-neutral-500">
+                    <time datetime={post.data.date} class="inline-flex items-center gap-1 rounded-md border border-white/[0.06] px-2 py-0.5">
+                      {post.data.date}
+                    </time>
+                  </div>
+                  <h2 class="text-base font-semibold text-neutral-50 group-hover:text-accent transition-colors duration-300 leading-snug">
+                    {post.data.title}
+                  </h2>
+                  <p class="text-sm text-neutral-400 leading-relaxed flex-grow">
+                    {post.data.description || "Sin descripci&oacute;n..."}
+                  </p>
+                  <span class="inline-flex items-center gap-1 text-xs font-medium text-accent mt-2
+                    opacity-0 translate-x-[-4px] transition-all duration-300
+                    group-hover:opacity-100 group-hover:translate-x-0"
+                  >
+                    Leer art&iacute;culo completo
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      )
+    }
   </section>
 </Layout>

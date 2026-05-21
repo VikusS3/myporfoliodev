@@ -3,17 +3,27 @@ import presentation from "@/data/presentacion";
 import ExperienceCard from "@/components/experience/ExperienceCard.astro";
 ---
 
-<section class="flex flex-col flex-wrap gap-6">
-  <h2 class="text-2xl font-semibold text-neutral-50">Experiencia</h2>
-  <div class="flex flex-col w-full gap-4">
+<section class="flex flex-col gap-6 animate-slide-up">
+  <div class="flex items-center gap-3">
+    <h2 class="text-2xl font-bold text-neutral-50">Experiencia</h2>
+    <span class="h-px flex-1 bg-gradient-to-r from-white/[0.06] to-transparent"></span>
+  </div>
+  <div class="relative flex flex-col w-full gap-5 pl-4 border-l border-white/[0.06]">
     {
-      presentation.experience.map((project) => (
-        <ExperienceCard
-          name={project.name}
-          duration={project.duration}
-          role={project.role}
-          description={project.description}
-        />
+      presentation.experience.map((project, index) => (
+        <div class="relative">
+          <div
+            class="absolute -left-[calc(1rem+1px)] top-6 h-3 w-3 -translate-x-1/2 rounded-full border-2
+              border-accent/40 bg-neutral-950"
+          >
+          </div>
+          <ExperienceCard
+            name={project.name}
+            duration={project.duration}
+            role={project.role}
+            description={project.description}
+          />
+        </div>
       ))
     }
   </div>

@@ -63,6 +63,7 @@ const presentation: Presentation = {
         "Plataforma web interactiva orientada a la gestión y visualización de álbumes digitales coleccionables, con una interfaz moderna y dinámica enfocada en la experiencia del usuario.",
       technologies: ["Php", "Flight", "MySql", "TailwindCss"],
       ref: "https://superfigus.com/",
+      image: "/figuritas.webp",
     },
     {
       name: "Tienda Nutri2u",
@@ -70,6 +71,7 @@ const presentation: Presentation = {
         "Tienda virtual enfocada en la venta de productos de nutrición y bienestar, con catálogo dinámico, navegación intuitiva y experiencia de compra optimizada para usuarios.",
       technologies: ["Php", "Flight", "MySql", "TailwindCss"],
       ref: "https://tienda.nutri2u.net/",
+      image: "/nutri2.webp",
     },
     {
       name: "Resulta Srl",
@@ -77,6 +79,7 @@ const presentation: Presentation = {
         "Plataforma e-commerce especializada en la comercialización de equipos y productos médicos, con catálogo digital, interfaz accesible y proceso de compra orientado a una experiencia rápida y eficiente.",
       technologies: ["Php", "Flight", "MySql", "TailwindCss"],
       ref: "https://resultasrl.com/",
+      image: "/resulta.webp",
     },
     {
       name: "HrmMicro",
@@ -91,6 +94,7 @@ const presentation: Presentation = {
         "Supabase",
       ],
       ref: "https://hrmicro-web.vercel.app/",
+      image: "/hrmicro.webp",
     },
     {
       name: "Gacha Countdown",
@@ -98,6 +102,7 @@ const presentation: Presentation = {
         "Aplicación web enfocada en el seguimiento y visualización de versiones de videojuegos, con estadísticas, historial de actualizaciones y una interfaz moderna orientada a la comunidad gamer.",
       technologies: ["React", "Astro", "Tailwind", "TypeScript"],
       ref: "https://version-counter.netlify.app/",
+      image: "/gachacountdown.webp",
     },
   ],
 };

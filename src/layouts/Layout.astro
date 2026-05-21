@@ -5,20 +5,64 @@ import "@fontsource/poppins";
 import { ClientRouter } from "astro:transitions";
 import SEOtags from "@/components/seo/SEOtags.astro";
 import type { HeadTags } from "@/types/headtags";
+import presentation from "@/data/presentacion";
 
 export type Props = HeadTags;
 const headTags = Astro.props;
+const pathname = Astro.url.pathname;
+
+const socialUrls = presentation.socials.map((s) => s.url);
 ---
 
 <!doctype html>
-<html lang="en">
-  <SEOtags {...headTags} />
+<html lang="es">
+  <SEOtags {...headTags} canonical={pathname} />
   <body
-    class="mx-auto flex min-h-screen max-w-[872px] flex-col px-10 py-8 gap-9 md:gap-20 md:py-16 text-sm text-neutral-200"
+    class="mx-auto flex min-h-screen max-w-[1024px] flex-col px-6 sm:px-10 py-8 gap-12 md:gap-24 md:py-16 text-sm text-neutral-300 antialiased"
   >
     <Header />
     <ClientRouter />
     <slot />
+
+    <script is:inline type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Saul Orellana",
+        "givenName": "Saul",
+        "familyName": "Orellana",
+        "jobTitle": "Desarrollador Web Fullstack",
+        "email": presentation.mail,
+        "url": "https://sauldev.pages.dev",
+        "sameAs": socialUrls,
+        "knowsAbout": [
+          "Desarrollo Web",
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Astro",
+          "Laravel",
+          "Next.js"
+        ]
+      }, null, 2)}
+    </script>
+
+    <script is:inline type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "SaulDev",
+        "url": "https://sauldev.pages.dev",
+        "logo": "https://sauldev.pages.dev/favicon.svg",
+        "description": "Portafolio de Saul Orellana, desarrollador web fullstack",
+        "sameAs": socialUrls,
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": presentation.mail,
+          "contactType": "technical support"
+        }
+      }, null, 2)}
+    </script>
   </body>
 </html>
 

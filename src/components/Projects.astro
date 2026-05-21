@@ -3,9 +3,12 @@ import presentation from "@/data/presentacion";
 import ProjectCard from "./experience/ProjectCard.astro";
 ---
 
-<section class="flex flex-col flex-wrap gap-6">
-  <h2 class="text-2xl font-semibold text-neutral-50">Proyectos</h2>
-  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+<section class="flex flex-col gap-6 animate-slide-up">
+  <div class="flex items-center gap-3">
+    <h2 class="text-2xl font-bold text-neutral-50">Proyectos</h2>
+    <span class="h-px flex-1 bg-gradient-to-r from-white/[0.06] to-transparent"></span>
+  </div>
+  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
     {presentation.projects.map((project) => <ProjectCard {...project} />)}
   </div>
 </section>

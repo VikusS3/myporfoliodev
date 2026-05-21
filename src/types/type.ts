@@ -16,6 +16,7 @@ interface Projects {
   description: string;
   technologies: string[];
   ref: string;
+  image?: string;
 }
 
 export interface Presentation {

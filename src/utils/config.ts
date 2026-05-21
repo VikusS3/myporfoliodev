@@ -1,3 +1,4 @@
-export const DEFAUL_TITLE_PAGE = "SaulDev - Desarrollador de software";
+export const DEFAUL_TITLE_PAGE = "SaulDev - Desarrollador Web Fullstack | Portafolio";
+
 export const DEFAUL_DESCRIPTION_PAGE =
-  "Desarrollador de software con 2 años de experiencia, me encanta crear sitios web y aplicaciones web, soy un apasionado de la tecnología y la programación.";
+  "Soy Saul Orellana, desarrollador web fullstack con más de 3 años de experiencia. Especializado en React, TypeScript, Laravel y Astro. Descubre mi portafolio, proyectos y artículos sobre desarrollo web.";
