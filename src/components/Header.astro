@@ -15,6 +15,17 @@ const initials = presentation.title
   .join("")
   .slice(0, 2)
   .toUpperCase();
+
+const isHome = pathname === "/";
+const isPosts = pathname === "/posts";
+
+const homeClasses = isHome
+  ? "text-neutral-50 after:scale-x-100 after:origin-left"
+  : "text-neutral-400 hover:text-neutral-200";
+
+const postsClasses = isPosts
+  ? "text-neutral-50 after:scale-x-100 after:origin-left"
+  : "text-neutral-400 hover:text-neutral-200";
 ---
 
 <header
@@ -34,21 +45,17 @@ const initials = presentation.title
     <span class="text-sm font-medium">Saul Orellana</span>
   </a>
 
-  <nav role="navigation" aria-label="Navegación principal">
+  <nav role="navigation" aria-label="Navegaci&oacute;n principal">
     <ul role="list" class="flex flex-row items-center gap-5">
       <li>
         <a
           href="/"
-          class="relative text-sm font-medium transition-colors duration-300
+          class={`relative text-sm font-medium transition-colors duration-300
             after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0
             after:bg-accent after:transition-transform after:duration-300
             hover:after:origin-left hover:after:scale-x-100
-            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black
-            class:list={{
-              ["text-neutral-50 after:scale-x-100 after:origin-left"]: pathname === "/",
-              ["text-neutral-400 hover:text-neutral-200"]: pathname !== "/",
-            }}"
-          aria-current={pathname === "/" ? "page" : undefined}
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${homeClasses}`}
+          aria-current={isHome ? "page" : undefined}
         >
           Inicio
         </a>
@@ -57,16 +64,12 @@ const initials = presentation.title
       <li>
         <a
           href="/posts"
-          class="relative text-sm font-medium transition-colors duration-300
+          class={`relative text-sm font-medium transition-colors duration-300
             after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0
             after:bg-accent after:transition-transform after:duration-300
             hover:after:origin-left hover:after:scale-x-100
-            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black
-            class:list={{
-              ["text-neutral-50 after:scale-x-100 after:origin-left"]: pathname === "/posts",
-              ["text-neutral-400 hover:text-neutral-200"]: pathname !== "/posts",
-            }}"
-          aria-current={pathname === "/posts" ? "page" : undefined}
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${postsClasses}`}
+          aria-current={isPosts ? "page" : undefined}
         >
           Blog
         </a>
