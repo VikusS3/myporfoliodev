@@ -22,8 +22,17 @@ const presentation: Presentation = {
 
   experience: [
     {
+      name: "CodeMultiAll",
+      role: "FullStack Developer",
+      location: "Lima, Perú",
+      duration: "Septiembre 2025 - Actualmente",
+      description:
+        "Desarrollé aplicaciones web y sistemas personalizados con Laravel y Next.js para clientes de Perú, Bolivia, Argentina y EE.UU., incluyendo tiendas virtuales, landing pages y plataformas interactivas. Implementé sistemas de inventario online/offline con sincronización automática, automatización de documentos y dashboards en tiempo real, optimizando procesos administrativos y reduciendo significativamente los tiempos de análisis y gestión.",
+    },
+
+    {
       name: "Universidad Nacional Mayor de San Marcos",
-      role: "Desarrollador de Software",
+      role: "FullStack Developer",
       location: "Lima, Perú",
       duration: "Agosto 2024 - Agosto 2025",
       description:
@@ -31,7 +40,7 @@ const presentation: Presentation = {
     },
     {
       name: "Macartur",
-      role: "Desarrollador de Software",
+      role: "FullStack Developer",
       location: "Lima, Perú",
       duration: "Julio 2024 - Julio 2024",
       description:
@@ -49,22 +58,44 @@ const presentation: Presentation = {
 
   projects: [
     {
-      name: "PractiPeru",
+      name: "SUPERFIGUS",
       description:
-        "Plataforma para encontrar practicas pre profesionales y profesionales en Perú.",
-      technologies: ["Astro", "Tailwind", "Supabase"],
-      ref: "https://practiperu.pages.dev/",
+        "Plataforma web interactiva orientada a la gestión y visualización de álbumes digitales coleccionables, con una interfaz moderna y dinámica enfocada en la experiencia del usuario.",
+      technologies: ["Php", "Flight", "MySql", "TailwindCss"],
+      ref: "https://superfigus.com/",
     },
     {
-      name: "Hrmicro",
-      description: "Sistema de control de plantilla para microempresas.",
-      technologies: ["Next.js", "React-Native", "Tailwind", "Supabase"],
-      ref: "https://github.com/VikusS3/Excel-facturas",
+      name: "Tienda Nutri2u",
+      description:
+        "Tienda virtual enfocada en la venta de productos de nutrición y bienestar, con catálogo dinámico, navegación intuitiva y experiencia de compra optimizada para usuarios.",
+      technologies: ["Php", "Flight", "MySql", "TailwindCss"],
+      ref: "https://tienda.nutri2u.net/",
+    },
+    {
+      name: "Resulta Srl",
+      description:
+        "Plataforma e-commerce especializada en la comercialización de equipos y productos médicos, con catálogo digital, interfaz accesible y proceso de compra orientado a una experiencia rápida y eficiente.",
+      technologies: ["Php", "Flight", "MySql", "TailwindCss"],
+      ref: "https://resultasrl.com/",
+    },
+    {
+      name: "HrmMicro",
+      description:
+        "Plataforma SaaS de control de asistencia laboral en la nube, enfocada en la gestión de personal mediante biometría facial, geolocalización, reportes en tiempo real y automatización de procesos de RRHH.",
+      technologies: [
+        "React",
+        "React-Native",
+        "Expo",
+        "Tailwind",
+        "TypeScript",
+        "Supabase",
+      ],
+      ref: "https://hrmicro-web.vercel.app/",
     },
     {
       name: "Gacha Countdown",
       description:
-        "Pagina web en la cual puedes ver la cuenta atras para las nuevas versiones de Gachas.",
+        "Aplicación web enfocada en el seguimiento y visualización de versiones de videojuegos, con estadísticas, historial de actualizaciones y una interfaz moderna orientada a la comunidad gamer.",
       technologies: ["React", "Astro", "Tailwind", "TypeScript"],
       ref: "https://version-counter.netlify.app/",
     },
