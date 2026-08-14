@@ -97,12 +97,28 @@ const presentation: Presentation = {
       image: "/hrmicro.webp",
     },
     {
+      name: "WhatsSell",
+      description:
+        "Aplicación web para la creacion de catálogos digitales y gestión de ventas a través de WhatsApp.",
+      technologies: ["React", "Supabase", "Tailwind", "TypeScript"],
+      ref: "https://whats-sell.vercel.app/",
+      image: "/whats-sell.webp",
+    },
+    {
       name: "Gacha Countdown",
       description:
         "Aplicación web enfocada en el seguimiento y visualización de versiones de videojuegos, con estadísticas, historial de actualizaciones y una interfaz moderna orientada a la comunidad gamer.",
       technologies: ["React", "Astro", "Tailwind", "TypeScript"],
       ref: "https://version-counter.netlify.app/",
       image: "/gachacountdown.webp",
+    },
+    {
+      name: "Gacha Sells",
+      description:
+        "Plataforma web para la venta de cada banner de los juegos gacha de Hoyoverse y Kurogames.",
+      technologies: ["Astro", "Tailwind", "TypeScript"],
+      ref: "https://gacha-sells.netlify.app/",
+      image: "/gacha-sells.webp",
     },
   ],
 };
