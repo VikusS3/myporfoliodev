@@ -19,6 +19,24 @@ interface Projects {
   image?: string;
 }
 
+interface Education {
+  title: string;
+  profession: string;
+  institution: string;
+  year: string;
+  description?: string;
+  image?: string;
+  url?: string;
+}
+
+interface Certificate {
+  name: string;
+  organization: string;
+  year: string;
+  url?: string;
+  image?: string;
+}
+
 export interface Presentation {
   mail: string;
   title: string;
@@ -26,5 +44,7 @@ export interface Presentation {
   socials: Social[];
   experience: Experience[];
   projects: Projects[];
+  education: Education[];
+  certificates: Certificate[];
   profile?: string;
 }

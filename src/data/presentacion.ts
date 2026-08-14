@@ -121,6 +121,27 @@ const presentation: Presentation = {
       image: "/gacha-sells.webp",
     },
   ],
+
+  education: [
+    {
+      title: "Técnico en Computación e Informática",
+      profession: "Desarrollador Web Fullstack",
+      institution: "Instituto",
+      year: "2025",
+      description:
+        "Formación técnica especializada en computación e informática, orientada al desarrollo de software y aplicaciones web.",
+      image: "/titulo.webp",
+    },
+  ],
+
+  certificates: [
+    {
+      name: "Certificado de Iniciación al Desarrollo con IA",
+      organization: "BIG school",
+      year: "2026",
+      image: "/Certificado-Felix-Saul-Orellana-Contreras.webp",
+    },
+  ],
 };
 
 export default presentation;

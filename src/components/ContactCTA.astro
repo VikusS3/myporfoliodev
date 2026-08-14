@@ -1,0 +1,58 @@
+---
+import presentation from "@/data/presentacion";
+---
+
+<section class="relative overflow-hidden rounded-2xl border border-accent/20 bg-gradient-to-br from-accent/[0.08] via-accent/[0.03] to-transparent p-6 sm:p-10 flex flex-col gap-6 animate-fade-in">
+  <div
+    class="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-accent/10 blur-3xl"
+    aria-hidden="true"
+  ></div>
+
+  <div class="flex flex-col gap-3 max-w-2xl relative z-10">
+    <h2 class="text-2xl sm:text-3xl font-bold text-neutral-50 leading-tight text-balance">
+      &iquest;Tienes un proyecto en mente?
+    </h2>
+    <p class="text-sm sm:text-base leading-relaxed text-neutral-400">
+      Puedo ayudarte a desarrollar el sitio web, tienda virtual o aplicaci&oacute;n que
+      necesitas. Cu&eacute;ntame tu idea y la haremos realidad.
+    </p>
+  </div>
+
+  <div class="flex flex-wrap gap-2 relative z-10">
+    {
+      ["Tiendas virtuales", "Landing pages", "Apps web", "Sistemas a medida", "Dashboards"].map(
+        (service) => (
+          <span
+            class="inline-flex items-center gap-1.5 rounded-full border border-accent/15 bg-accent/5 px-3 py-1 text-xs font-medium text-accent/90"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            {service}
+          </span>
+        )
+      )
+    }
+  </div>
+
+  <div class="flex flex-wrap items-center gap-3 relative z-10 pt-1">
+    <a
+      href={`mailto:${presentation.mail}?subject=${encodeURIComponent("Solicitud de proyecto web")}`}
+      class="inline-flex items-center gap-2 rounded-lg bg-accent/10 px-5 py-3 text-sm font-medium text-accent border border-accent/20 transition-all duration-300
+        hover:bg-accent/20 hover:border-accent/30 hover:shadow-[0_0_30px_-6px_rgba(248,113,113,0.2)]
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      Solicitar mi proyecto
+    </a>
+    <a
+      href={`https://wa.me/51906492166?text=${encodeURIComponent("Hola Saul, quiero desarrollar un proyecto web.")}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-2 rounded-lg border border-neutral-800 px-5 py-3 text-sm font-medium text-neutral-400
+        transition-all duration-300 hover:text-neutral-200 hover:border-neutral-700 hover:bg-white/[0.02]
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      Escribir por WhatsApp
+    </a>
+  </div>
+</section>

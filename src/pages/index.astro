@@ -5,6 +5,8 @@ import Hero from "@/components/Hero.astro";
 
 import Experience from "@/components/Experience.astro";
 import Projects from "@/components/Projects.astro";
+import Certificates from "@/components/Certificates.astro";
+import ContactCTA from "@/components/ContactCTA.astro";
 import Footer from "@/components/Footer.astro";
 import { DEFAUL_TITLE_PAGE, DEFAUL_DESCRIPTION_PAGE } from "@/utils/config";
 ---
@@ -13,7 +15,9 @@ import { DEFAUL_TITLE_PAGE, DEFAUL_DESCRIPTION_PAGE } from "@/utils/config";
   <main class="flex flex-col gap-16">
     <Hero />
     <Experience />
+    <Certificates />
     <Projects />
+    <ContactCTA />
     <Footer />
   </main>
 </Layout>
