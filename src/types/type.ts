@@ -39,6 +39,8 @@ interface Certificate {
 
 export interface Presentation {
   mail: string;
+  phone?: string;
+  location?: string;
   title: string;
   description: string;
   socials: Social[];

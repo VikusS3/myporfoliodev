@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sauldev.pages.dev/sitemap.xml
+# Bloquear recursos que no aportan valor al indexado
+Disallow: /CV.pdf
+
+Sitemap: https://sauldev.pages.dev/sitemap-index.xml

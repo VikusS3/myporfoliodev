@@ -1,5 +1,12 @@
 ---
-import { SITE_URL } from "@/data/config";
+import {
+  SITE_URL,
+  SITE_NAME,
+  SITE_AUTHOR,
+  SITE_IMAGE,
+  SITE_LOCALE,
+  SITE_TWITTER,
+} from "@/data/config";
 import type { HeadTags } from "@/types/headtags";
 import { SEO } from "astro-seo";
 import { DEFAUL_TITLE_PAGE, DEFAUL_DESCRIPTION_PAGE } from "@/utils/config";
@@ -9,18 +16,26 @@ const { title, description, noindex, canonical, og } = Astro.props;
 
 const DEFAULT_URL_SITE = SITE_URL;
 
+const ogImage = og?.image
+  ? og.image.startsWith("http")
+    ? og.image
+    : `${DEFAULT_URL_SITE}${og.image}`
+  : SITE_IMAGE;
+
 const openGraph = {
   title: title || og?.title || DEFAUL_TITLE_PAGE,
   type: og?.type || "website",
-  description: og?.description || DEFAUL_DESCRIPTION_PAGE,
-  image: og?.image || "/og-image.jpg",
+  description: og?.description || description || DEFAUL_DESCRIPTION_PAGE,
+  image: ogImage,
   url: DEFAULT_URL_SITE,
-  alt: og?.alt || "SaulDev - Portafolio de Saul Orellana, desarrollador fullstack",
+  alt: og?.alt || "SaulDev - Portafolio de Saul Orellana, desarrollador fullstack en Lima, Perú",
 };
 
 const canonicalUrl = canonical
-  ? `${DEFAULT_URL_SITE}${canonical}`
+  ? `${DEFAULT_URL_SITE}${canonical.startsWith("/") ? canonical : `/${canonical}`}`
   : DEFAULT_URL_SITE;
+
+const twitterCreator = SITE_TWITTER;
 ---
 
 <head>
@@ -38,26 +53,32 @@ const canonicalUrl = canonical
       },
       image: {
         alt: openGraph.alt,
+        width: 1200,
+        height: 630,
       },
     }}
     twitter={{
-      creator: "@saul_dev21",
+      creator: twitterCreator,
     }}
     extend={{
       link: [
         { rel: "icon", href: "/favicon.svg" },
-        { rel: "sitemap", href: "/sitemap.xml" },
+        { rel: "sitemap", href: "/sitemap-index.xml" },
         { rel: "canonical", href: canonicalUrl },
       ],
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         { name: "generator", content: Astro.generator },
-        {
-          name: "robots",
-          content: noindex
-            ? "noindex, nofollow"
-            : "index, follow, max-image-preview:large, max-snippet:-1",
-        },
+        { name: "author", content: SITE_AUTHOR },
+        { name: "theme-color", content: "#0a0a0a" },
+        { name: "color-scheme", content: "dark" },
+        { name: "geo.region", content: "PE-LIM" },
+        { name: "geo.placename", content: "Lima, Perú" },
+        { property: "og:site_name", content: SITE_NAME },
+        { property: "og:locale", content: SITE_LOCALE },
+        { property: "og:image:alt", content: openGraph.alt },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
         {
           name: "twitter:image",
           content: openGraph.image,
@@ -65,7 +86,7 @@ const canonicalUrl = canonical
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: openGraph.title },
         { name: "twitter:description", content: openGraph.description },
-        { name: "twitter:site", content: "@saul_dev21" },
+        { name: "twitter:site", content: twitterCreator },
       ],
     }}
   />

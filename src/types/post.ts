@@ -2,6 +2,7 @@
 export interface Post {
   title: string;
   date: string;
-  description: string;
-  // Puedes agregar más campos si tu schema crece
+  updated?: string;
+  description?: string;
+  tags?: string[];
 }

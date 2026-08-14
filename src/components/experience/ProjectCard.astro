@@ -59,8 +59,10 @@ const techColors: Record<string, string> = {
       <div class="relative aspect-video overflow-hidden">
         <img
           src={image}
-          alt={name}
+          alt={`Captura del proyecto ${name} desarrollado por Saul Orellana`}
           class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+          decoding="async"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
       </div>

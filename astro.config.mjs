@@ -7,7 +7,14 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "https://sauldev.pages.dev",
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      lastmod: new Date(),
+      filter: (page) =>
+        !page.includes("/404") &&
+        !page.includes("/CV.pdf"),
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()]
   }

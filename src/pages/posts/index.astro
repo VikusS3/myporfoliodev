@@ -1,11 +1,21 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import { SITE_URL } from "@/data/config";
 
 let posts = await getCollection("posts");
 posts = posts.sort(
   (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
+
+const blogPostings = posts.map((post) => ({
+  "@type": "BlogPosting",
+  headline: post.data.title,
+  description: post.data.description,
+  url: `${SITE_URL}/posts/${post.slug}`,
+  datePublished: post.data.date,
+  inLanguage: "es",
+}));
 ---
 
 <Layout
@@ -67,4 +77,53 @@ posts = posts.sort(
       )
     }
   </section>
+
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(
+      {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "@id": `${SITE_URL}/posts/#blog`,
+        "name": "Blog de SaulDev",
+        "description":
+          "Artículos sobre desarrollo web fullstack, JavaScript, TypeScript, React, Laravel y Astro.",
+        "url": `${SITE_URL}/posts`,
+        "inLanguage": "es",
+        "author": { "@id": `${SITE_URL}/#person` },
+        "publisher": { "@id": `${SITE_URL}/#organization` },
+        "blogPost": blogPostings,
+      },
+      null,
+      2
+    )}
+  ></script>
+
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": `${SITE_URL}/posts`,
+          },
+        ],
+      },
+      null,
+      2
+    )}
+  ></script>
 </Layout>

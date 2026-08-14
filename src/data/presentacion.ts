@@ -2,6 +2,8 @@ import { type Presentation } from "@/types/type";
 
 const presentation: Presentation = {
   mail: "felix21soc@gmail.com",
+  phone: "+51906492166",
+  location: "Lima, Perú",
   title: "Hola, Soy Saul Orellana 👋",
   description:
     "Hola soy Saul Orellana, desarrollador web fullstack con más de 3 años de experiencia en desarrollo web. Me gusta la programación y la tecnología.",

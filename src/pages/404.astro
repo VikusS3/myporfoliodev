@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout
+  title="Página no encontrada | Saul Orellana"
+  description="La página que buscas no existe. Vuelve al portafolio de Saul Orellana, desarrollador web fullstack en Lima, Perú."
+  noindex
+  canonical="/404"
+>
+  <section class="flex flex-col items-center justify-center gap-4 py-24 text-center">
+    <p class="text-7xl font-bold text-accent">404</p>
+    <h1 class="text-2xl font-bold text-neutral-50">Página no encontrada</h1>
+    <p class="max-w-md text-sm text-neutral-400 leading-relaxed">
+      La página que buscas no existe o fue movida. Vuelve al inicio para ver mi
+      portafolio y proyectos.
+    </p>
+    <a
+      href="/"
+      class="mt-2 inline-flex items-center gap-2 rounded-lg bg-accent/10 px-5 py-2.5 text-sm font-medium text-accent border border-accent/20 transition-all duration-300 hover:bg-accent/20"
+    >
+      Volver al inicio
+    </a>
+  </section>
+</Layout>

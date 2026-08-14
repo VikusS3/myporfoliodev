@@ -6,16 +6,19 @@ import { ClientRouter } from "astro:transitions";
 import SEOtags from "@/components/seo/SEOtags.astro";
 import type { HeadTags } from "@/types/headtags";
 import presentation from "@/data/presentacion";
+import { SITE_URL, SITE_NAME, SITE_IMAGE, SITE_LANG } from "@/data/config";
 
 export type Props = HeadTags;
 const headTags = Astro.props;
 const pathname = Astro.url.pathname;
 
 const socialUrls = presentation.socials.map((s) => s.url);
+const phone = presentation.phone || undefined;
+const location = presentation.location;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={SITE_LANG}>
   <SEOtags {...headTags} canonical={pathname} />
   <body
     class="mx-auto flex min-h-screen max-w-[1024px] flex-col px-6 sm:px-10 py-8 gap-12 md:gap-24 md:py-16 text-sm text-neutral-300 antialiased"
@@ -24,45 +27,115 @@ const socialUrls = presentation.socials.map((s) => s.url);
     <ClientRouter />
     <slot />
 
-    <script is:inline type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Saul Orellana",
-        "givenName": "Saul",
-        "familyName": "Orellana",
-        "jobTitle": "Desarrollador Web Fullstack",
-        "email": presentation.mail,
-        "url": "https://sauldev.pages.dev",
-        "sameAs": socialUrls,
-        "knowsAbout": [
-          "Desarrollo Web",
-          "JavaScript",
-          "TypeScript",
-          "React",
-          "Astro",
-          "Laravel",
-          "Next.js"
-        ]
-      }, null, 2)}
-    </script>
-
-    <script is:inline type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "SaulDev",
-        "url": "https://sauldev.pages.dev",
-        "logo": "https://sauldev.pages.dev/favicon.svg",
-        "description": "Portafolio de Saul Orellana, desarrollador web fullstack",
-        "sameAs": socialUrls,
-        "contactPoint": {
-          "@type": "ContactPoint",
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "@id": `${SITE_URL}/#person`,
+          "name": "Saul Orellana",
+          "givenName": "Saul",
+          "familyName": "Orellana",
+          "jobTitle": "Desarrollador Web Fullstack",
+          "description": presentation.description,
           "email": presentation.mail,
-          "contactType": "technical support"
-        }
-      }, null, 2)}
-    </script>
+          "telephone": phone,
+          "image": `${SITE_URL}/favicon.svg`,
+          "url": SITE_URL,
+          "nationality": "Peruana",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": location,
+            "addressCountry": "PE"
+          },
+          "sameAs": socialUrls,
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Universidad Nacional Mayor de San Marcos",
+            "url": "https://unmsm.edu.pe/"
+          },
+          "worksFor": {
+            "@type": "Organization",
+            "name": "CodeMultiAll"
+          },
+          "knowsLanguage": ["es", "en"],
+          "knowsAbout": [
+            "Desarrollo Web",
+            "JavaScript",
+            "TypeScript",
+            "React",
+            "Astro",
+            "Laravel",
+            "Next.js"
+          ],
+          "subjectOf": {
+            "@type": "WebSite",
+            "name": SITE_NAME,
+            "url": SITE_URL
+          }
+        },
+        null,
+        2
+      )}
+    ></script>
+
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          "name": SITE_NAME,
+          "alternateName": "Saul Orellana",
+          "url": SITE_URL,
+          "inLanguage": "es",
+          "publisher": {
+            "@id": `${SITE_URL}/#person`
+          },
+          "image": SITE_IMAGE
+        },
+        null,
+        2
+      )}
+    ></script>
+
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
+          "name": SITE_NAME,
+          "url": SITE_URL,
+          "logo": {
+            "@type": "ImageObject",
+            "url": `${SITE_URL}/favicon.svg`
+          },
+          "image": SITE_IMAGE,
+          "description": "Portafolio de Saul Orellana, desarrollador web fullstack en Lima, Perú",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lima",
+            "addressCountry": "PE"
+          },
+          "sameAs": socialUrls,
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": presentation.mail,
+            "contactType": "technical support",
+            "availableLanguage": ["Spanish", "English"]
+          }
+        },
+        null,
+        2
+      )}
+    ></script>
   </body>
 </html>
 
